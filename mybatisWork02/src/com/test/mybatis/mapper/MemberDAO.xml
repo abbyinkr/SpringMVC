@@ -18,13 +18,19 @@
 		SELECT COUNT(*) AS COUNT
 		FROM TBL_MEMBERLIST
 	</select>
-	<insert id="add">
+	<insert id="add"> <!-- memberDTO 클래스의 #{ 속성 } 으로 넘김 -->
 		INSERT INTO TBL_MEMBERLIST(MID, NAME, TELEPHONE)
-		VALUES(MEMBERLISTSEQ.NEXTVAL, '선혜연', '010-2222-2222')
+		VALUES(MEMBERLISTSEQ.NEXTVAL, #{name}, #{telephone}) 
 	</insert>
 	<delete id="remove">
 		DELETE 
 		FROM TBL_MEMBERLIST
-		WHERE MID = 1
+		WHERE MID = #{mid}
 	</delete>
+	
+	<update id="modify">
+		UPDATE TBL_MEMBERLIST
+		SET NAME = #{name}, TELEPHONE = #{telephone }
+		WHERE MID = #{mid}
+	</update>
 </mapper>

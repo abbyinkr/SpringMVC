@@ -1,0 +1,16 @@
+<!-- Calc 클래스의 객체를 현재 페이지에서 사용할 수 있도록 지정 -->
+
+<jsp:useBean id="ob" class="com.test.Calc" scope="page"></jsp:useBean>
+<jsp:setProperty property="su1" name="ob"/>
+
+
+<!-- ① request.getParameter() 처리 -->
+<!-- ② ob.su1 → ob.setSu1() 처리 -->
+<!-- ③ 매개변수를 전달하기 위한 타입(형) 변환 처리 -->
+<!-- ==> 최종적으로 ob → Calc 객체의 su1 속성에
+         이전 페이지로부터 넘겨받은 데이터를 
+         적절한 타입(형)으로 전달 -->
+
+
+배열로 넘어온 데이터는 null 체크 필수
+dto 변수명은 앞 두글자 소문자로 명명

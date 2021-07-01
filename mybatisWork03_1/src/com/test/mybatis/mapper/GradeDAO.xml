@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 부모 노릇을 할 인터페이스를 지정 -->
+<!-- implements IGradeDAO -->
+<mapper namespace="com.test.mybatis.IGradeDAO">
+	<!-- select 쿼리 →<select id="메소드 이름"></select> -->
+	<!-- 고유해야 하기 때문에(식별가능해야하기때문에 id 속성) -->
+	<!-- resultType 은 각각 하나씩 바인딩 되는 곳 -->	
+	<select id="list" resultType="com.test.mybatis.GradeDTO">
+		
+	</select>
+	<select id="count" resultType="java.lang.Integer">
+		
+	</select>
+	<insert id="add"> <!-- memberDTO 클래스의 #{ 속성 } 으로 넘김 -->
+		
+	</insert>
+	<delete id="remove">
+		
+	</delete>
+</mapper>

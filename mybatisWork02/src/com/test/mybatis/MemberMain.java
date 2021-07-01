@@ -20,6 +20,9 @@ public class MemberMain
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
+	// form 안에 있는걸 넘길때는 POST 방식 !! ★ 
+	// POST방식에 GET으로 더 붙으면 GET
 	@RequestMapping(value = "/memberlist.action", method = RequestMethod.GET)
 	public String memberList(ModelMap model)
 	{
@@ -32,4 +35,40 @@ public class MemberMain
 		return "/WEB-INF/views/MemberList.jsp";
 	}
 
+	@RequestMapping(value="/memberinsert.action", method=RequestMethod.POST)
+	public String memberInsert(MemberDTO m)
+	{
+		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
+		
+		dao.add(m);
+		
+		return "redirect:memberlist.action";
+	}
+	
+	@RequestMapping(value="/memberdelete.action", method=RequestMethod.GET)
+	public String memberDelete(MemberDTO m)
+	{
+		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
+		
+		dao.remove(m);
+		
+		return "redirect:memberlist.action";
+	}
+	
+	@RequestMapping(value="/memberupdate.action", method=RequestMethod.POST)
+	public String memberUpdate(MemberDTO m)
+	{
+		IMemberDAO dao = sqlSession.getMapper(IMemberDAO.class);
+		
+		//System.out.println(m.getMid());
+		
+		dao.modify(m);
+		
+		return "redirect:memberlist.action";
+	}
+	
+	
+	
+	
+	
 }

@@ -14,5 +14,6 @@ public interface IMemberDAO
 	public int count();
 	public ArrayList<MemberDTO> list();
 	public int remove(MemberDTO m);
+	public int modify(MemberDTO m);
 	
 }
